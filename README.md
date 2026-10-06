@@ -85,9 +85,31 @@ phone apps and consumer instruments in the NorCal Hike and Fly league.
 npm test
 ```
 
-`test/fixtures/` holds gzipped column fixtures with golden `segments` output
-from the NorCal Hike and Fly league tracks. The golden tests require an exact
-index match.
+`test/fixtures/` holds gzipped column fixtures (`timeMs`, `lat`, `lon`, `alt`)
+with golden `segments` output from the NorCal Hike and Fly league tracks. The
+golden tests require an exact index match. The fixtures are generated in the
+NorCal-Hike-and-Fly repo with `npm run fixtures` in `tracklog_handler`, which
+applies that project's parsers and competition time window before writing the
+columns.
+
+`test/labels/` holds hand-labeled launch and landing points for the same
+fixtures. `test/labels.test.js` requires every labeled launch and landing to be
+within 60 seconds of a detected segment.
+
+### Labeling a fixture
+
+`label_tool.ipynb` is a Jupyter notebook that shows a fixture on a map and an
+altitude profile, with the detector's current launch and landing drawn as dotted
+lines. Drag the sliders to the correct fixes and click **Save Labels**.
+
+```sh
+pip install jupyter ipywidgets ipyleaflet plotly anywidget
+jupyter notebook label_tool.ipynb
+```
+
+Set `FIXTURE` in the Configuration cell to a file under `test/fixtures/`. The
+sliders start at the existing labels, or at the detected segments if the fixture
+has no labels yet.
 
 ## Attribution and license
 
