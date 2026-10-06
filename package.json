@@ -1,0 +1,30 @@
+{
+  "name": "hike-fly-detect",
+  "version": "0.1.0",
+  "description": "In-air / on-foot detection for hike and fly paragliding tracklogs",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "README.md",
+    "LICENSE",
+    "COPYING"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BarlowR/hike-fly-detect.git"
+  },
+  "keywords": ["paragliding", "hike-and-fly", "igc", "gpx", "tracklog"],
+  "license": "LGPL-3.0-or-later"
+}
